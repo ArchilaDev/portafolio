@@ -1,3 +1,207 @@
-body{
-    background-color: blue;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/*Cabezera*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header_links {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #080E1A;
+    color: #8A99AD;
+    padding: 20px;
+
+
+}
+
+.header_links ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+
+}
+
+.header_links ul>li a {
+    cursor: pointer;
+    padding-bottom: 5px;
+    position: relative;
+    color: #8A99AD;
+}
+
+.header_links ul>li a::after {
+    content: '';
+    bottom: -6px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00A3FF;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.header_links ul>li a:hover::after {
+    transition: transform 0.2s ease;
+    transform: scaleX(1);
+}
+
+.header_links ul>li:hover {
+    transition: 0.03s;
+    transform: translateY(-2px);
+}
+
+
+.header_links ul>li a:hover {
+    transition: color 0.2s ease;
+   
+    color: #FFFFFF;
+}
+
+.header_links ul>li a {
+    position: relative;
+    padding-bottom: 8px;
+    text-decoration: none;
+    display: inline-block; /* Permite aplicar animaciones de transform */
+    transition: color 0.2s ease; /* Transición suave de color al hacer hover */
+}
+
+/*Cambio de tema*/
+
+#cambio_tema a {
+    font-size: 15px;
+}
+
+#cambio_tema {
+    padding: 5px;
+    border-radius: 45%;
+    position: absolute;
+    right: 100px;
+    top: auto;
+    border: solid 3px rgba(255, 255, 255, 0.05);
+
+}
+
+#cambio_tema:hover {
+    transition: 0.03s;
+    transform: translateY(-2px);
+}
+
+/*animacion cambio de tema*/
+/* Estilos para el Modo Claro (se activan cuando el body tiene la clase .light-mode) */
+body.light-mode {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+body.light-mode .header_links {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .header_links ul>li a {
+    color: #475569;
+}
+
+body.light-mode .header_links ul>li a:hover {
+    color: #0284C7;
+}
+
+body.light-mode .informacion_principal {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+body.light-mode #cambio_tema {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: #F1F5F9;
+}
+
+body.light-mode .botones_mas_informacion .links a i {
+    color: #0F172A !important; 
+}
+
+
+/*El hero o main */
+
+.informacion_principal {
+    color: #FFFFFF;
+    background-color: #030712;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titulo_texto h2 {
+    font-size: 60px;
+}
+
+.titulo_texto h3 {
+    font-size: 40px;
+    color: #00A3FF;
+}
+
+/*Ajusta la foto de perfil*/
+
+.foto_perfil img {
+    width: 700px;
+    height: 540px;
+    border-radius: 4%;
+}
+
+/*Apartado de botones*/
+
+.botones_mas_informacion button {
+    color: white;
+    border: none;
+    border-radius: 10%;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+.botones_mas_informacion>#ver_proyecto {
+    background-color: blueviolet;
+
+}
+
+.botones_mas_informacion>#descarga_cv {
+    background-color: #030712;
+    border: solid 1px #00A3FF;
+}
+
+/*Apartado de links de contacto*/
+
+.botones_mas_informacion>.links {
+    display: flex;
+    padding-top: 10px;
+    flex-direction: row;
+    justify-content: start;
+    gap: 20px;
+
+}
+
+.botones_mas_informacion>.links>a:hover {
+    transform: translateY(-3px);
+}
+
+/*SOBRE MI ----------------------------------------------------*/
