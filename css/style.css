@@ -1,10 +1,11 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/*Cabezera*/
+/* Cabecera */
 header {
     position: fixed;
     top: 0;
@@ -19,10 +20,9 @@ header {
     flex-direction: row;
     justify-content: center;
     background-color: #080E1A;
+    border-bottom: 1px solid #17334D;
     color: #8A99AD;
-    padding: 20px;
-
-
+    padding: 15px 20px;
 }
 
 .header_links ul {
@@ -32,9 +32,7 @@ header {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    gap: 10px;
-
+    gap: 20px;
 }
 
 .header_links ul>li a {
@@ -42,70 +40,59 @@ header {
     padding-bottom: 5px;
     position: relative;
     color: #8A99AD;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.2s ease;
 }
 
 .header_links ul>li a::after {
     content: '';
-    bottom: -6px;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #00A3FF;
+    background-color: #00A8FF;
     transform: scaleX(0);
     transition: transform 0.2s ease;
 }
 
 .header_links ul>li a:hover::after {
-    transition: transform 0.2s ease;
     transform: scaleX(1);
 }
 
 .header_links ul>li:hover {
-    transition: 0.03s;
     transform: translateY(-2px);
+    transition: transform 0.2s ease;
 }
 
-
 .header_links ul>li a:hover {
-    transition: color 0.2s ease;
-
     color: #FFFFFF;
 }
 
-.header_links ul>li a {
-    position: relative;
-    padding-bottom: 8px;
-    text-decoration: none;
-    display: inline-block;
-    /* Permite aplicar animaciones de transform */
-    transition: color 0.2s ease;
-}
-
-/*Cambio de tema*/
-
+/* Cambio de tema */
 #cambio_tema a {
     font-size: 15px;
 }
 
 #cambio_tema {
-    padding: 5px;
-    border-radius: 45%;
+    padding: 6px 10px;
+    border-radius: 50%;
     position: absolute;
-    right: 100px;
-    top: auto;
-    border: solid 3px rgba(255, 255, 255, 0.05);
-
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #17334D;
+    background-color: #0A1118;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 #cambio_tema:hover {
-    transition: 0.03s;
-    transform: translateY(-2px);
+    border-color: #00A8FF;
 }
 
-/*animacion cambio de tema*/
-/* Estilos para el Modo Claro (se activan cuando el body tiene la clase .light-mode) */
+/* Modo Claro */
 body.light-mode {
     background-color: #F8FAFC;
     color: #0F172A;
@@ -113,7 +100,8 @@ body.light-mode {
 
 body.light-mode .header_links {
     background-color: #FFFFFF;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 body.light-mode .header_links ul>li a {
@@ -124,178 +112,510 @@ body.light-mode .header_links ul>li a:hover {
     color: #0284C7;
 }
 
-body.light-mode .informacion_principal {
-    background-color: #F8FAFC;
-    color: #0F172A;
-}
-
 body.light-mode #cambio_tema {
     border-color: rgba(0, 0, 0, 0.1);
     background-color: #F1F5F9;
 }
 
-body.light-mode .botones_mas_informacion .links a i {
-    color: #0F172A !important;
+body.light-mode main {
+    background-color: #F8FAFC;
 }
 
 
-/*El hero o main */
 
+/* Main & Hero */
 main {
-    background-color: #030712;
-    color: white;
-    width: 100%;
+    background-color: #0A1118;
+    color: #F5F7FA;
 }
 
 .informacion_principal {
-    color: #FFFFFF;
-    padding-top: 100px;
+    color: #F5F7FA;
+    padding-top: 120px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 40px;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 100px;
-}
-
-.titulo_texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .titulo_texto h2 {
-    font-size: 60px;
+    font-size: 56px;
+    color: #F5F7FA;
+    font-weight: 700;
 }
 
 .titulo_texto h3 {
-    font-size: 40px;
-    color: #00A3FF;
+    font-size: 32px;
+    color: #00A8FF;
 }
 
-/*Ajusta la foto de perfil*/
+.informacion_texto p {
+    color: #B8C4D1;
+    line-height: 1.6;
+}
 
 .foto_perfil img {
-    width: 700px;
-    height: 540px;
-    border-radius: 4%;
+    width: 480px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid #17334D;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/*Apartado de botones*/
-
+/* Botones de Hero */
 .botones_mas_informacion button {
-    color: white;
+    color: #FFFFFF;
     border: none;
-    border-radius: 10%;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 12px 20px;
     cursor: pointer;
-
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
-.botones_mas_informacion>#ver_proyecto {
-    background-color: blueviolet;
-
+.botones_mas_informacion > #ver_proyecto {
+    background-color: #0099FF;
+    margin-right: 10px;
 }
 
-.botones_mas_informacion>#descarga_cv {
-    background-color: #030712;
-    border: solid 1px #00A3FF;
+.botones_mas_informacion > #ver_proyecto:hover {
+    background-color: #00A8FF;
+    box-shadow: 0 0 12px rgba(0, 168, 255, 0.4);
 }
 
-/*Apartado de links de contacto*/
+.botones_mas_informacion > #descarga_cv {
+    background-color: transparent;
+    border: 1px solid #17334D;
+    color: #F5F7FA;
+}
 
-.botones_mas_informacion>.links {
+.botones_mas_informacion > #descarga_cv:hover {
+    border-color: #00A8FF;
+    color: #00A8FF;
+}
+
+.botones_mas_informacion > .links {
     display: flex;
-    padding-top: 10px;
+    padding-top: 16px;
     flex-direction: row;
     justify-content: start;
     gap: 20px;
-
 }
 
-.botones_mas_informacion>.links>a:hover {
+.botones_mas_informacion > .links > a {
+    transition: transform 0.2s ease;
+}
+
+.botones_mas_informacion > .links > a:hover {
     transform: translateY(-3px);
 }
 
-/*SOBRE MI ----------------------------------------------------*/
+/* Separadores HR */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #17334D;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+/* Sobre Mi */
 .sobre_mi {
     display: flex;
     flex-direction: row;
-    padding-top: 30px;
+    padding: 60px 20px;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #F5F7FA;
+}
 
+.sobre_mi_texto {
+    max-width: 600px;
 }
 
 .sobre_mi_texto strong {
-    font-size: 40px;
+    font-size: 32px;
+}
+
+.sobre_mi_texto p {
+    color: #B8C4D1;
+    line-height: 1.6;
 }
 
 .sobre_mi_texto i {
-    color: blue;
-    font-size: 40px;
-    padding-right: 20px;
+    color: #00A8FF;
+    font-size: 32px;
+    padding-right: 12px;
+}
+
+.estudio {
+    background-color: #080E1A;
+    border: 1px solid #17334D;
+    border-radius: 12px;
+    padding: 24px;
 }
 
 .estudio i {
-    color: blue;
-    font-size: 30px;
+    color: #00A8FF;
+    font-size: 24px;
 }
 
-/*Color del tema*/
-
-body.light-mode .sobre_mi {
-    background-color: #F8FAFC;
-    color: #0F172A;
+.estudio strong {
+    color: #00A8FF !important;
 }
 
+.estudio p {
+    color: #B8C4D1;
+    line-height: 1.6;
+}
 
-/*Proyectos*/
+/* Proyectos */
+.proyecto {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-.proyecto>#texto_proyecto {
+.proyecto > #texto_proyecto {
     display: flex;
     justify-content: center;
-    font-size: 30px;
-    padding-left: 10px;
+    font-size: 32px;
+    color: #F5F7FA;
+    margin-bottom: 30px;
 }
 
 .proyecto i {
-    color: blue;
-}
-
-
-.proyectos div {
-    border: solid 1px white;
-
-}
-/*Imagen temporal*/
-
-.proyectos img{
-    width: 200px;
-    height: 200px;
+    color: #00A8FF;
+    margin-right: 10px;
 }
 
 .proyectos {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 24px;
     text-align: center;
+    flex-wrap: wrap;
 }
 
-/*Cambio de tema de proyectos*/
-body.light-mode .proyecto div{
-    border-color: black;
+.proyectos div {
+    background-color: #080E1A;
+    border: 1px solid #17334D;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    color: #B8C4D1;
 }
 
-body.light-mode .proyecto{
-     background-color: #F8FAFC;
+.proyectos div:hover {
+    border-color: #00A8FF;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 153, 255, 0.15);
+}
+
+.proyectos img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Habilidades */
+.habilidades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.habilidades_encabezado {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.habilidades_encabezado h2 {
+    font-size: 36px;
+    color: #F5F7FA;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.habilidades_encabezado p {
+    font-size: 16px;
+    color: #B8C4D1;
+}
+
+.subtitulo_seccion {
+    font-size: 24px;
+    color: #F5F7FA;
+    margin: 40px 0 20px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.lenguajes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.lenguajes_videojuegos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 780px;
+}
+
+.lenguajes > div,
+.lenguajes_videojuegos > div {
+    background-color: #080E1A;
+    border: 1px solid #17334D;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lenguajes > div:hover,
+.lenguajes_videojuegos > div:hover {
+    border-color: #00A8FF;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 153, 255, 0.15);
+}
+
+.lenguaje {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.lenguaje img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.lenguaje strong {
+    font-size: 20px;
+    color: #F5F7FA;
+}
+
+.lenguajes p,
+.lenguajes_videojuegos p {
+    font-size: 14px;
+    color: #B8C4D1;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.lenguajes span,
+.lenguajes_videojuegos span {
+    font-size: 12px;
+    color: #00A8FF;
+    background-color: rgba(0, 153, 255, 0.1);
+    border: 1px solid rgba(0, 153, 255, 0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-weight: 500;
+    margin-left: 0;
+    display: inline-block;
+}
+
+.icon-luau {
+    width: 36px;
+    height: 36px;
+    background-color: #00A2FF;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .lenguajes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .lenguajes,
+    .lenguajes_videojuegos {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*Configuracion de los temas*/
+
+
+body.light-mode {
+    background-color: #F8FAFC;
     color: #0F172A;
 }
 
-/*TODOS LOS HR , NO SIRVE PPERO AJA*/
+/* Cabecera */
+body.light-mode .header_links {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
 
-body hr{
-    background-color:red;
+body.light-mode .header_links ul>li a {
+    color: #475569;
+}
+
+body.light-mode .header_links ul>li a:hover {
+    color: #0284C7;
+}
+
+body.light-mode #cambio_tema {
+    border-color: #CBD5E1;
+    background-color: #F1F5F9;
+}
+
+body.light-mode #cambio_tema i {
+    color: #0F172A !important;
+}
+
+/* Main y Secciones */
+body.light-mode main {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+body.light-mode .informacion_principal {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+body.light-mode .titulo_texto h2 {
+    color: #0F172A;
+}
+
+body.light-mode .informacion_texto p {
+    color: #334155;
+}
+
+body.light-mode .botones_mas_informacion #descarga_cv {
+    border-color: #CBD5E1;
+    color: #0F172A;
+}
+
+body.light-mode .botones_mas_informacion #descarga_cv:hover {
+    border-color: #0284C7;
+    color: #0284C7;
+}
+
+body.light-mode .botones_mas_informacion .links a i {
+    color: #0F172A !important;
+}
+
+/* Sobre Mí y Estudio */
+body.light-mode .sobre_mi {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+body.light-mode .sobre_mi_texto strong {
+    color: #0F172A;
+}
+
+body.light-mode .sobre_mi_texto p {
+    color: #334155;
+}
+
+body.light-mode .estudio {
+    background-color: #FFFFFF;
+    border-color: #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .estudio p {
+    color: #334155;
+}
+
+/* Proyectos */
+body.light-mode .proyecto > #texto_proyecto {
+    color: #0F172A;
+}
+
+body.light-mode .proyectos div {
+    background-color: #FFFFFF;
+    border-color: #E2E8F0;
+    color: #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .proyectos div:hover {
+    border-color: #0284C7;
+    box-shadow: 0 8px 15px rgba(2, 132, 199, 0.1);
+}
+
+/* Habilidades */
+body.light-mode .habilidades_encabezado h2,
+body.light-mode .subtitulo_seccion {
+    color: #0F172A;
+}
+
+body.light-mode .habilidades_encabezado p {
+    color: #64748B;
+}
+
+body.light-mode .lenguajes > div,
+body.light-mode .lenguajes_videojuegos > div {
+    background-color: #FFFFFF;
+    border-color: #E2E8F0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .lenguajes > div:hover,
+body.light-mode .lenguajes_videojuegos > div:hover {
+    border-color: #0284C7;
+    box-shadow: 0 8px 15px rgba(2, 132, 199, 0.1);
+}
+
+body.light-mode .lenguajes strong,
+body.light-mode .lenguajes_videojuegos strong {
+    color: #0F172A;
+}
+
+body.light-mode .lenguajes p,
+body.light-mode .lenguajes_videojuegos p {
+    color: #334155;
+}
+
+body.light-mode .lenguajes span,
+body.light-mode .lenguajes_videojuegos span {
+    color: #0284C7;
+    background-color: rgba(2, 132, 199, 0.08);
+    border-color: rgba(2, 132, 199, 0.25);
+}
+
+/* Líneas separadoras */
+body.light-mode hr {
+    background-color: #E2E8F0;
 }
