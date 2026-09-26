@@ -70,7 +70,7 @@ header {
 
 .header_links ul>li a:hover {
     transition: color 0.2s ease;
-   
+
     color: #FFFFFF;
 }
 
@@ -78,8 +78,9 @@ header {
     position: relative;
     padding-bottom: 8px;
     text-decoration: none;
-    display: inline-block; /* Permite aplicar animaciones de transform */
-    transition: color 0.2s ease; /* Transición suave de color al hacer hover */
+    display: inline-block;
+    /* Permite aplicar animaciones de transform */
+    transition: color 0.2s ease;
 }
 
 /*Cambio de tema*/
@@ -134,20 +135,32 @@ body.light-mode #cambio_tema {
 }
 
 body.light-mode .botones_mas_informacion .links a i {
-    color: #0F172A !important; 
+    color: #0F172A !important;
 }
 
 
 /*El hero o main */
 
+main {
+    background-color: #030712;
+    color: white;
+    width: 100%;
+}
+
 .informacion_principal {
     color: #FFFFFF;
-    background-color: #030712;
     padding-top: 100px;
     display: flex;
     flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.titulo_texto {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -205,3 +218,84 @@ body.light-mode .botones_mas_informacion .links a i {
 }
 
 /*SOBRE MI ----------------------------------------------------*/
+
+.sobre_mi {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.sobre_mi_texto strong {
+    font-size: 40px;
+}
+
+.sobre_mi_texto i {
+    color: blue;
+    font-size: 40px;
+    padding-right: 20px;
+}
+
+.estudio i {
+    color: blue;
+    font-size: 30px;
+}
+
+/*Color del tema*/
+
+body.light-mode .sobre_mi {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+
+/*Proyectos*/
+
+.proyecto>#texto_proyecto {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+.proyecto i {
+    color: blue;
+}
+
+
+.proyectos div {
+    border: solid 1px white;
+
+}
+/*Imagen temporal*/
+
+.proyectos img{
+    width: 200px;
+    height: 200px;
+}
+
+.proyectos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+}
+
+/*Cambio de tema de proyectos*/
+body.light-mode .proyecto div{
+    border-color: black;
+}
+
+body.light-mode .proyecto{
+     background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+/*TODOS LOS HR , NO SIRVE PPERO AJA*/
+
+body hr{
+    background-color:red;
+}
